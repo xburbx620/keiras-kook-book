@@ -1,14 +1,18 @@
 (() => {
   const view = document.getElementById("view");
   const backBtn = document.getElementById("backBtn");
-  let filter = "all";
+  let filter = "dessert";
 
   function recipeById(id) {
     return RECIPES.find((r) => r.id === id);
   }
 
+  function homeHash(nextFilter) {
+    return !nextFilter || nextFilter === "all" ? "#/" : `#/${nextFilter}`;
+  }
+
   function goHome() {
-    history.pushState({}, "", "#/");
+    history.pushState({}, "", homeHash(filter));
     render();
   }
 
@@ -21,7 +25,10 @@
     const hash = location.hash.replace(/^#/, "") || "/";
     const parts = hash.split("/").filter(Boolean);
     if (parts[0] === "recipe" && parts[1]) return { page: "recipe", id: parts[1] };
-    return { page: "home" };
+    if (parts[0] && CATEGORIES.some((cat) => cat.id === parts[0])) {
+      return { page: "home", filter: parts[0] };
+    }
+    return { page: "home", filter: parts[0] ? filter : "dessert" };
   }
 
   function renderHome() {
@@ -30,7 +37,7 @@
     view.innerHTML = `
       <section class="hero-copy">
         <h1>Tap a food to cook it</h1>
-        <p>Short recipes. Grown-up help for heat and knives. Healthy and tasty.</p>
+        <p>Chocolate cake and Dad's Dessert are in Dessert. Grown-up help for heat and knives.</p>
       </section>
       <div class="cats" role="tablist" aria-label="Meal type"></div>
       <div class="grid" id="grid"></div>
@@ -43,6 +50,7 @@
       btn.className = cat.id === filter ? "on" : "";
       btn.addEventListener("click", () => {
         filter = cat.id;
+        history.pushState({}, "", homeHash(filter));
         renderHome();
       });
       cats.append(btn);
@@ -94,7 +102,10 @@
   function render() {
     const route = currentRoute();
     if (route.page === "recipe") renderRecipe(route.id);
-    else renderHome();
+    else {
+      if (route.filter) filter = route.filter;
+      renderHome();
+    }
     window.scrollTo(0, 0);
   }
 
