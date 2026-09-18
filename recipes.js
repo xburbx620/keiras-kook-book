@@ -352,6 +352,55 @@ const RECIPES = [
       "Press berries on top.",
       "Freeze until firm, then break into pieces."
     ]
+  },
+  {
+    id: "simple-chocolate-cake",
+    name: "Simple Chocolate Cake",
+    category: "dessert",
+    time: "30 min",
+    servings: "8",
+    helper: "A grown-up should use the oven and mix the batter.",
+    why: "Soft chocolate cake you can share. One bowl, few steps.",
+    photo: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=80",
+    photoAlt: "A chocolate cake on a stand",
+    ingredients: [
+      "1 cup flour",
+      "1/2 cup cocoa powder",
+      "1/2 cup sugar",
+      "1 teaspoon baking soda",
+      "1 cup milk",
+      "1/3 cup oil",
+      "1 teaspoon vanilla"
+    ],
+    steps: [
+      "Stir flour, cocoa, sugar, and baking soda in a bowl.",
+      "Add milk, oil, and vanilla. Mix until smooth.",
+      "Ask a grown-up to bake in a greased pan until a toothpick comes out clean.",
+      "Cool, then cut squares and eat."
+    ]
+  },
+  {
+    id: "dads-dessert",
+    name: "Dad's Dessert",
+    category: "dessert",
+    time: "8 min",
+    servings: "2",
+    helper: "A grown-up can warm the brownie and fudge. Use edible cookie dough only, not raw dough.",
+    why: "Warm brownie, cold ice cream, cookie dough, and hot fudge. Dad's favorite pile-up.",
+    photo: "https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=80",
+    photoAlt: "A sundae with chocolate sauce",
+    ingredients: [
+      "2 brownies",
+      "2 scoops vanilla ice cream",
+      "2 spoons edible cookie dough",
+      "Hot fudge sauce, warmed"
+    ],
+    steps: [
+      "Ask a grown-up to warm the brownies until they are soft.",
+      "Put each brownie in a bowl and add a scoop of ice cream.",
+      "Add little pieces of edible cookie dough.",
+      "Spoon hot fudge over the top and eat right away."
+    ]
   }
 ];
 
